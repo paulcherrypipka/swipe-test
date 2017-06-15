@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Card, Button } from 'react-native-elements';
 
 import Deck from './src/Deck';
+import MoviesFetcher from './src/MoviesFetcher';
 
 
 const DATA = [
@@ -16,9 +17,39 @@ const DATA = [
   { id: 7, text: 'Girl #7', uri: 'https://images.pexels.com/photos/292491/pexels-photo-292491.jpeg?w=940&h=650&auto=compress&cs=tinysrgb' },
 ];
 
+// const REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
 
 class App extends React.Component {
   
+  constructor(props) {
+    super(props);
+    console.log('constructor');
+  }
+
+  componentWillMount() {
+    console.log('componentWillMount');
+
+    // DATA = this.fetchMovies(REQUEST_URL);
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount'); 
+  }
+
+  // fetchMovies(url) {
+  //   return fetch(url)
+  //   .then((response) => {
+  //     console.log('response => ', response);
+  //     return response.json();
+  //   })
+  //   .then((responseJson) => {
+  //     console.log('responseJson => ', responseJson);
+  //   })
+  //   .catch((error) => {
+  //     console.log('Error again oh my goooosh!!!')
+  //   });
+  // }
+
   renderCard(card) {
     return (
       <Card
@@ -37,11 +68,25 @@ class App extends React.Component {
     );
   }
 
-  render() {
+  renderOld() {
+   console.log('render');
     return (
       <View style={styles.container}>
         <Deck 
-          data={DATA} 
+          data={DATA}
+          renderCard={this.renderCard} 
+        />
+      </View>
+    );
+  }
+
+  render() {
+   console.log('render');
+    return (
+      <View style={styles.container}>
+        <MoviesFetcher />
+        <Deck 
+          data={DATA}
           renderCard={this.renderCard} 
         />
       </View>
