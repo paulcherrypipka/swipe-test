@@ -17,7 +17,7 @@ const DATA = [
   { id: 7, text: 'Girl #7', uri: 'https://images.pexels.com/photos/292491/pexels-photo-292491.jpeg?w=940&h=650&auto=compress&cs=tinysrgb' },
 ];
 
-// const REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
+const REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
 
 class App extends React.Component {
   
@@ -84,7 +84,7 @@ class App extends React.Component {
    console.log('render');
     return (
       <View style={styles.container}>
-        <MoviesFetcher />
+        {/*<MoviesFetcher requestUrl={REQUEST_URL} />*/}
         <Deck 
           data={DATA}
           renderCard={this.renderCard} 

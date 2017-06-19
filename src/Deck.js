@@ -8,11 +8,11 @@ import {
 
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_THREESHOLD = 0.25 * SCREEN_WIDTH;
 
 class Deck extends Component {
 	constructor(props) {
 		super(props);
-
 
 		const position = new Animated.ValueXY();
 		const panResponder = PanResponder.create({
@@ -20,7 +20,14 @@ class Deck extends Component {
 			onPanResponderMove: (event, gesture) => {
 				position.setValue({ x: gesture.dx, y: gesture.dy });
 			},
-			onPanResponderRelease: () => {
+			onPanResponderRelease: (events, gesture) => {
+				if (gesture.dx > SCREEN_THREESHOLD) {
+					console.log('SWIPE TO RIGHT');
+				} else if (gesture.dx < -SCREEN_THREESHOLD) {
+					console.log('SWIPE TO LEFT');
+				} else {
+					
+				}
 				this.resetPosition();
 			},
 		});
