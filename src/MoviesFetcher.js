@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import {
   AppRegistry,
-  Image, 
+  Image,
   ListView,
   StyleSheet,
   Text,
@@ -75,7 +75,7 @@ class MoviesFetcher extends Component {
     return (
       <View style={styles.container}>
         <Image
-          source={{uri: movie.posters.thumbnail}}
+          source={{ uri: movie.posters.thumbnail }}
           style={styles.thumbnail}
         />
         <View style={styles.rightContainer}>

@@ -6,6 +6,7 @@ import { Card, Button } from 'react-native-elements';
 import Deck from './src/Deck';
 import MoviesFetcher from './src/MoviesFetcher';
 
+import { Tabs } from './src/routes'
 
 const DATA = [
   { id: 1, text: 'Girl #1', uri: 'https://images.pexels.com/photos/160699/girl-dandelion-yellow-flowers-160699.jpeg?w=940&h=650&auto=compress&cs=tinysrgb' },
@@ -80,8 +81,8 @@ class App extends React.Component {
     );
   }
 
-  render() {
-   console.log('render');
+  renderDeck() {
+   console.log('render deck');
     return (
       <View style={styles.container}>
         {/*<MoviesFetcher requestUrl={REQUEST_URL} />*/}
@@ -92,7 +93,14 @@ class App extends React.Component {
       </View>
     );
   }
+
+  render() {
+    return (
+      <Tabs />
+    );
+  }
 }
+
 
 const styles = StyleSheet.create({
   container: {
